@@ -25,6 +25,11 @@
       .hover-glow:hover {
         box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
       }
+      img::before {
+        content: '';
+        display: block;
+        background-color: #1e293b;
+      }
     </style>
   </head>
   <body>
@@ -113,9 +118,21 @@
         const gallery = document.getElementById("portfolio-gallery");
         images.forEach((src) => {
           const img = document.createElement("img");
-          img.src = `portfolio/${src}`;
+          img.src = `${window.location.origin}/portfolio/${src}`;
           img.className = "w-full h-56 object-cover rounded-xl hover:scale-105 transition duration-300 cursor-pointer";
-          img.onclick = () => window.open(img.src, "_blank");
+          img.onload = () => {
+            if (!img.complete || img.naturalWidth === 0) {
+              img.alt = "Image failed to load";
+              img.style.background = "#1e293b";
+              img.style.minHeight = "14rem";
+              img.style.display = "flex";
+              img.style.alignItems = "center";
+              img.style.justifyContent = "center";
+              img.style.color = "#94a3b8";
+              img.style.fontSize = "0.875rem";
+              img.innerText = "Image not found";
+            }
+          };
 
           const wrapper = document.createElement("div");
           wrapper.className = "overflow-hidden rounded-2xl shadow-lg glass";
