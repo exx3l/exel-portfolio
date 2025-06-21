@@ -25,11 +25,6 @@
       .hover-glow:hover {
         box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
       }
-      img::before {
-        content: '';
-        display: block;
-        background-color: #1e293b;
-      }
     </style>
   </head>
   <body>
@@ -103,14 +98,12 @@
     <!-- Image Gallery Script -->
     <script>
       const images = [
-        "Screenshot_1446-11-08_at_12.12.33_am-1.webp",
         "Screenshot_1446-10-06_at_6.53.22_pm.webp",
-        "Screenshot_1446-11-05_at_4.46.05_pm.webp",
+        "Screenshot_1446-10-07_at_10.35.23_pm.webp",
         "Screenshot_1446-10-07_at_9.41.05_pm.webp",
         "Screenshot_1446-10-08_at_4.50.46_am.webp",
-        "Screenshot_1446-10-07_at_10.35.23_pm.webp",
-        "IMG_2084.webp",
-        "IMG_2035.webp",
+        "Screenshot_1446-11-05_at_4.46.05_pm.webp",
+        "Screenshot_1446-11-08_at_12.12.33_am-1.webp",
         "image.webp"
       ];
 
@@ -118,21 +111,9 @@
         const gallery = document.getElementById("portfolio-gallery");
         images.forEach((src) => {
           const img = document.createElement("img");
-          img.src = `${window.location.origin}/portfolio/${src}`;
+          img.src = `portfolio/${src}`;
           img.className = "w-full h-56 object-cover rounded-xl hover:scale-105 transition duration-300 cursor-pointer";
-          img.onload = () => {
-            if (!img.complete || img.naturalWidth === 0) {
-              img.alt = "Image failed to load";
-              img.style.background = "#1e293b";
-              img.style.minHeight = "14rem";
-              img.style.display = "flex";
-              img.style.alignItems = "center";
-              img.style.justifyContent = "center";
-              img.style.color = "#94a3b8";
-              img.style.fontSize = "0.875rem";
-              img.innerText = "Image not found";
-            }
-          };
+          img.alt = src;
 
           const wrapper = document.createElement("div");
           wrapper.className = "overflow-hidden rounded-2xl shadow-lg glass";
