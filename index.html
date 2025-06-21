@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exel's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Geist', sans-serif;
+        background: radial-gradient(circle at top left, #0d1b2a, #0a192f);
+        color: #e0e6ed;
+      }
+      .text-glow {
+        text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center text-center px-6">
+      <div class="glass p-10 rounded-xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-glow">I'm Exel</h1>
+        <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+          A 15-year-old Egyptian UI/UX Designer & Developer fluent in English, passionate about crafting polished, responsive, and engaging experiences in web and game design.
+        </p>
+        <a href="#portfolio" class="inline-block mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 hover-glow rounded-full text-white font-semibold transition">See My Work</a>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center glass p-10 rounded-xl">
+        <h2 class="text-4xl font-bold mb-6 text-glow">About Me</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          My name is Exel, and I’ve been designing and developing for Roblox and the web for over 2 years. I specialize in UI systems that are not only visually stunning but are also responsive and functional across all devices. I’m particularly experienced in creating stylized and theme-consistent UI for games and immersive apps.
+        </p>
+        <p class="text-gray-300 text-lg leading-relaxed mt-4">
+          I enjoy working closely with developers and teams to make sure everything looks clean, feels intuitive, and performs smoothly. I’m professional, fast, and always open to feedback.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why Hire Me -->
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center glass p-10 rounded-xl">
+        <h2 class="text-4xl font-bold mb-6 text-glow">Why Hire Me?</h2>
+        <ul class="grid md:grid-cols-2 gap-6 text-left text-lg text-gray-300">
+          <li>✅ Expert in Roblox Studio UI importing and scaling</li>
+          <li>✅ Clean, pixel-perfect UI design</li>
+          <li>✅ Adaptable to retro, futuristic, or minimal themes</li>
+          <li>✅ Fluent communication and responsive turnaround</li>
+          <li>✅ UI optimized for all screen sizes</li>
+          <li>✅ Strong experience working on game and app interfaces</li>
+          <li>✅ Organized folder structure, layered files, and delivery-ready assets</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-10 text-glow">My Portfolio</h2>
+        <div id="portfolio-gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-6">
+      <div class="max-w-3xl mx-auto text-center glass p-10 rounded-xl">
+        <h2 class="text-4xl font-bold mb-4 text-glow">Get In Touch</h2>
+        <p class="text-lg text-gray-300 mb-6">
+          I'm always open to new opportunities, commissions, or collaborations. Feel free to reach out!
+        </p>
+        <p class="text-xl text-blue-400 font-mono">
+          Discord: <span class="font-semibold">.exx3l</span><br />
+          Email: <span class="font-semibold">sonboyjoel99@outlook.com</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 text-center text-gray-500 text-sm">
+      Built with 💙 by Exel — 2025
+    </footer>
+
+    <!-- Image Gallery Script -->
+    <script>
+      const images = [
+        "Screenshot_1446-11-08_at_12.12.33_am.jpg",
+        "Screenshot_1446-10-06_at_6.53.22_pm.jpg",
+        "Screenshot_1446-11-05_at_4.46.05_pm.jpg",
+        "c861fae47d3cda441d141b06b168a8b6.jpg",
+        "Screenshot_1446-11-08_at_12.12.33_am-1.jpg",
+        "Screenshot_1446-10-07_at_9.41.05_pm.jpg",
+        "Screenshot_1446-10-08_at_4.50.46_am-1.jpg",
+        "c861fae47d3cda441d141b06b168a8b6-1.jpg",
+        "IMG_2084.jpg",
+        "image.jpg",
+        "Screenshot_1446-10-08_at_4.50.46_am.jpg",
+        "Screenshot_1446-10-07_at_10.35.23_pm.jpg",
+        "IMG_2035.jpg"
+      ];
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.getElementById("portfolio-gallery");
+        images.forEach((src) => {
+          const img = document.createElement("img");
+          img.src = `portfolio/${src}`;
+          img.className = "w-full h-56 object-cover rounded-xl hover:scale-105 transition duration-300 cursor-pointer";
+          img.onclick = () => window.open(img.src, "_blank");
+
+          const wrapper = document.createElement("div");
+          wrapper.className = "overflow-hidden rounded-2xl shadow-lg glass";
+          wrapper.appendChild(img);
+
+          gallery.appendChild(wrapper);
+        });
+      });
+    </script>
+  </body>
+</html>
